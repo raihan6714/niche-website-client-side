@@ -1,0 +1,10 @@
+.overview-content h2 {
+    font-weight: bold;
+}
+.overview-content h2 span{
+    color: #fa0f07;
+}
+.overview-content p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

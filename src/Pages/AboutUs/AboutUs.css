@@ -1,0 +1,90 @@
+.about-fun-fact {
+    float: left;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45%;
+  }
+  .about-fun-fact .col-6 {
+    position: relative;
+    width: 50%;
+    z-index: 9;
+  }
+  .about-fun-fact-inner {
+    background: url("https://i.ibb.co/L8ycxyh/fun-bg.jpg")no-repeat scroll 0 0 / cover ;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+  }
+  .about-us {
+    margin-left: 140px;
+    margin-right: 140px;
+    position: relative;
+  }
+  .about-content > h3 {
+    color: #151320;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .about-read p.text-1 {
+    color: #151320;
+    font-size: 20px;
+    line-height: 35px;
+  }
+  .about-us .about-read p.text-2, .about-us .about-read p.text-3 {
+      color: #151320;
+      font-size: 16px;
+      line-height: 26px;
+  }
+  .about-read p.text-2 {
+      margin-bottom: 20px;
+  }
+  .about-read p.text-3 {
+      margin: 0;
+  }
+  .about-description {
+    padding-bottom: 140px;
+    /* padding-top: 127px; */
+  }
+  .white-overlay:before{
+    position: absolute;
+    background: rgba(255,255,255,0.75);
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .fun-icon svg {
+      color: #606060;
+      font-size: 60px;
+  }
+  .fun-text h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+  .fun-text h3.counter {
+    color: #606060;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+  } 
+  .fun-icon {
+    padding-bottom: 20px;
+  }
+  .fun-factor {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+  }
+  .about-us.bg-gray {
+    background: #f9f9f9 none repeat scroll 0 0;
+  }

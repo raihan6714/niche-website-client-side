@@ -1,0 +1,142 @@
+.get-in-touch > h3, .contact-address > h3, .contact-form-titile.text-center > h3 {
+    color: #39393c;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .get-in-touch > p {
+      color: #151320;
+      font-size: 16px;
+  }
+  .contact-social > a {
+      color: #606060;
+      font-size: 24px;
+      margin-left: 28px;
+  }
+  .contact-social > a:hover {
+      color: #f6563c;
+  }
+  .contact-social > a:first-child {
+      margin-left: 0;
+  }
+  .contact-social {
+      padding-bottom: 30px;
+      padding-top: 16px;
+  }
+  .contact-icon i {
+      color: #606060;
+      display: block;
+      font-size: 24px;
+      position: relative;
+      top: -8px;
+  }
+  .conatct-desc {
+      padding-left: 30px;
+  }
+  .conatct-desc > p {
+    color: #151320;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: capitalize;
+  }
+  .single-contact-list {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .contact-list .single-contact-list:last-child {
+      margin-bottom: 0;
+  }
+  /*Contact form css here*/
+  
+  .contact-box.name_email {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+  }
+  
+  .single-contact-form.d-flex .contact-box {
+      min-width: 50%;
+      padding: 0 10px;
+  }
+  .single-contact-form.d-flex {
+      margin-left: -10px;
+      margin-right: -10px;
+  }
+  .single-contact-form {
+      margin-bottom: 21px;
+  }
+  .contact-form-inner .contact-box > input {
+      background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+      border: 1px solid #e99416;
+      border-radius: 8px;
+      color: #151320;
+      font-weight: 600;
+      height: 55px;
+      padding: 0 20px;
+      width: 100%;
+  }
+  .contact-form-inner .contact-box > input::-webkit-input-placeholder {
+      color: #151320;
+      opacity: 0.7;
+  }
+  .contact-form-inner .contact-box > input:-ms-input-placeholder {
+      color: #151320;
+      opacity: 0.7;
+  }
+  .contact-form-inner .contact-box > input::-moz-placeholder {
+      color: #151320;
+      opacity: 0.7;
+  }
+  .contact-box.message textarea {
+      background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+      border: 1px solid #e99416;
+      border-radius: 10px;
+      color: #151320;
+      height: 170px;
+      padding: 20px;
+      width: 100%;
+  }
+  .contact-box.message textarea::-webkit-input-placeholder {
+      color: #151230;
+      font-weight: 600;
+      opacity: 0.7;
+  }
+  .contact-box.message textarea:-ms-input-placeholder {
+      color: #151230;
+      font-weight: 600;
+      opacity: 0.7;
+  }
+  .contact-box.message textarea::-moz-placeholder {
+      color: #151230;
+      font-weight: 600;
+      opacity: 0.7;
+  }
+  .contact-form-inner .contact-btn > button {
+    background: #f6563c none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 35
+px
+;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    height: 50
+px
+;
+    padding: 0 40
+px
+;
+    position: relative;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+;
+    position: relative;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
