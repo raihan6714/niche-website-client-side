@@ -18,7 +18,7 @@ const AddBike = () => {
     };
     return (
         <div>
-            <h1 className="mt-3 text-center text-warning">Add MotoBike</h1>
+            <h1 className="mt-3 text-center text-danger">Add MotoBike</h1>
             <div className="w-50 m-auto mt-2">
                 <div className="">
                     <div className="">

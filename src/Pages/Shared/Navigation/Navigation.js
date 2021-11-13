@@ -25,10 +25,12 @@ const Navigation = () => {
                             <NavLink className="me-3 text-decoration-none fs-5 text-dark" to="/about">About Us</NavLink>
                             <NavLink className="me-3 text-decoration-none fs-5 text-dark" to="/contact">Contact Us</NavLink>
                             <NavLink className="me-3 text-decoration-none fs-5 text-dark" to="/motobikes">Moto Bikes</NavLink>
-                            <NavLink className="me-3 text-decoration-none fs-5 text-dark" to="/dashboard">Dashboard</NavLink>
+
                         </Nav>
                         <Nav>
-                            {user.email && <NavLink className="me-3 text-decoration-none fs-5 text-dark" to="/">Login as: {user.displayName}</NavLink>}
+                            <NavLink to="/dashboard">
+                                <Button className="me-2" variant="danger">Admin Dashboard</Button>
+                            </NavLink>
                         </Nav>
                         <Nav>
                             {

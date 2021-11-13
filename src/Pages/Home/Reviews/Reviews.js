@@ -23,7 +23,7 @@ const Reviews = () => {
                                         </Card.Title>
                                         <Card.Title>
                                             <span className="text-danger">GIVE US: </span>
-                                            {review?.rateing}
+                                            {review?.rateing} Out Of 5
                                         </Card.Title>
                                         <Card.Text>
                                             <span className="text-danger">CLIENT SAY : </span>

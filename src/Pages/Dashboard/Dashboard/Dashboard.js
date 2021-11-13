@@ -24,6 +24,8 @@ import AddBike from '../AddBike/AddBike';
 import ManageBookings from '../ManageBookings/ManageBookings';
 import Review from '../Review/Review';
 import MyBooking from '../MyBooking/MyBooking';
+import Payment from '../Payment/Payment';
+import ManageAllBikes from '../ManageAllBikes/ManageAllBikes';
 const drawerWidth = 200;
 
 const Dashboard = (props) => {
@@ -32,38 +34,6 @@ const Dashboard = (props) => {
     const { window } = props;
     let { path, url } = useRouteMatch();
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const drawer = (
-        <div>
-            {
-                user?.email && <Typography variant="h6" noWrap component="div">
-                    <img style={{ verticalAlign: 'middle', borderRadius: '50%' }} src={user?.photoURL} alt="Avatar" className="ms-5" />
-                    <h5 className="ms-5">{user.displayName}</h5>
-                </Typography>
-
-            }
-            <Toolbar />
-            <Divider />
-            <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}`}> Dashboard </Link>
-            <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}/myBooking`}>MyBooking</Link>
-            <br />
-            <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}/review`}>Add Review</Link>
-            <Divider />
-            <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}/addBike`}>Add Bikes</Link>
-            <br />
-            <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}/makeAdmin`}>Add Admin</Link>
-            <br />
-            <Link className=" mb-4 text-decoration-none fs-5" to={`${url}/managebooking`}>Manage Bookings</Link>
-            <NavLink to="/login">
-                <Button onClick={handleLogout} className="btn btn-info ms-5 mt-4" variant="dark">Logout</Button>
-            </NavLink>
-        </div>
-    );
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
-
-    const container =
-        window !== undefined ? () => window().document.body : undefined;
     useEffect(() => {
         fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
             .then((res) => res.json())
@@ -76,6 +46,46 @@ const Dashboard = (props) => {
             });
     }, [user?.email]);
     console.log(isAdmin);
+    const drawer = (
+        <div>
+            <Toolbar />
+            <Divider />
+            <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}`}> Home </Link>
+            <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}/myBooking`}>MyBooking</Link>
+            <br />
+            <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}/review`}>Add Review</Link>
+            <br />
+            <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}/payment`}>Payment</Link>
+            <Divider />
+            {
+                isAdmin && <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}/addBike`}>Add Bikes</Link>
+            }
+            <br />
+            {
+                isAdmin && <Link className="ms-4 mb-5 text-decoration-none fs-5" to={`${url}/makeAdmin`}>Add Admin</Link>
+            }
+
+            <br />
+            {
+                isAdmin && <Link className=" mb-4 text-decoration-none fs-5" to={`${url}/managebooking`}>Manage Orders</Link>
+            }
+            <br />
+            {
+                isAdmin && <Link className=" mb-4 text-decoration-none fs-5" to={`${url}/managebike`}>Manage All Bikes</Link>
+            }
+            <NavLink to="/login">
+                <Button onClick={handleLogout} className="btn btn-info ms-5 mt-4" variant="dark">Logout</Button>
+            </NavLink>
+        </div>
+    );
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
+
+    const container =
+        window !== undefined ? () => window().document.body : undefined;
+
+
 
     return (
         <Box sx={{ display: "flex" }}>
@@ -155,14 +165,22 @@ const Dashboard = (props) => {
                     <Route path={`${path}/review`}>
                         <Review />
                     </Route>
+                    <Route path={`${path}/payment`}>
+                        <Payment />
+                    </Route>
                     <Route path={`${path}/myBooking`}>
                         <MyBooking />
                     </Route>
+
+                    {/* admin part */}
                     <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin />
                     </Route>
                     <Route path={`${path}/addbike`}>
                         <AddBike />
+                    </Route>
+                    <Route path={`${path}/managebike`}>
+                        <ManageAllBikes />
                     </Route>
                     <Route path={`${path}/managebooking`}>
                         <ManageBookings />

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Spinner, Table } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../../hooks/useAuth';
 
 const ManageBookings = () => {
     const [orders, setOrders] = useState([]);
     const { register, handleSubmit } = useForm();
-
+    const { isLoading } = useAuth();
     const [status, setStatus] = useState("");
     const [orderId, setOrderId] = useState("");
 
@@ -22,6 +23,7 @@ const ManageBookings = () => {
         console.log(id);
     };
 
+
     const onSubmit = (data) => {
         console.log(data, orderId);
         fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
@@ -32,8 +34,29 @@ const ManageBookings = () => {
             .then((res) => res.json())
             .then((result) => console.log(result));
     };
+    if (isLoading) {
+        return <div className="text-center">
+            <Spinner animation="border" variant="warning" />
+        </div>
+    };
+    const handleDelete = id => {
+        const url = `http://localhost:5000/deleteOrder/${id}`;
+        fetch(url, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+                    alert('Deleted Successfully');
+                    const remaining = orders.filter(order => order._id !== id);
+                    setOrders(remaining);
+                }
+            })
+    }
     return (
         <>
+            <h1 className="my-3 text-center text-danger">Manage All Orders</h1>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -46,29 +69,28 @@ const ManageBookings = () => {
                         <th>Action</th>
                     </tr>
                 </thead>
-                {orders.map((booking, index) => (
+                {orders.map((order, index) => (
                     <tbody>
                         <tr>
                             <td>{index + 1}</td>
-                            <td>{booking?.name}</td>
-                            <td>{booking?.email}</td>
-                            <td>{booking?.address}</td>
-                            <td>{booking?.phone}</td>
+                            <td>{order?.name}</td>
+                            <td>{order?.email}</td>
+                            <td>{order?.address}</td>
+                            <td>{order?.phone}</td>
                             <td>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <select
-                                        onClick={() => handleOrderId(booking?._id)}
+                                        onClick={() => handleOrderId(order?._id)}
                                         {...register("status")}
                                     >
-                                        <option value={booking?.status}>{booking?.status}</option>
+                                        <option value={order?.status}>{order?.status}</option>
                                         <option value="approve">approve</option>
                                         <option value="done">Done</option>
                                     </select>
                                     <input type="submit" />
                                 </form>
                             </td>
-                            <button className="btn bg-danger p-2">Delete</button>
-                            <button className="btn bg-success p-2">Update</button>
+                            <button onClick={() => handleDelete(order?._id)} className="btn btn-danger">Delete</button>
                         </tr>
                     </tbody>
                 ))}

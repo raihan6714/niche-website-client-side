@@ -10,9 +10,24 @@ const MyBooking = () => {
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, [user?.email]);
-
+    const handleDelete = id => {
+        const url = `http://localhost:5000/deleteOrder/${id}`;
+        fetch(url, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount) {
+                    alert('Deleted Successfully');
+                    const remaining = orders.filter(order => order._id !== id);
+                    setOrders(remaining);
+                }
+            })
+    }
     return (
         <>
+            <h2 className="text-danger p-2 text-center">My Booking</h2>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -21,6 +36,7 @@ const MyBooking = () => {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 {
@@ -32,6 +48,7 @@ const MyBooking = () => {
                                 <td>{order.name}</td>
                                 <td>{order.email}</td>
                                 <td>{order.phone}</td>
+                                <button onClick={() => handleDelete(order?._id)} className="btn btn-danger">Cancel</button>
                             </tr>
                         </tbody>
                     ))

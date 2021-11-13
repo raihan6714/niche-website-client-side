@@ -44,7 +44,7 @@ const useFirebase = () => {
                 // ...
             }
         });
-    }, []);
+    }, [auth]);
 
     const handleLogout = () => {
         signOut(auth)
@@ -108,6 +108,7 @@ const useFirebase = () => {
 
     return {
         user,
+        authError,
         loginUser,
         registerUser,
         signInWithGoogle,
