@@ -35,7 +35,7 @@ const Dashboard = (props) => {
     let { path, url } = useRouteMatch();
     const [mobileOpen, setMobileOpen] = React.useState(false);
     useEffect(() => {
-        fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+        fetch(`https://boiling-savannah-74683.herokuapp.com/checkAdmin/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 if (data[0]?.role === "admin") {

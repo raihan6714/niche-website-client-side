@@ -11,7 +11,7 @@ const ManageBookings = () => {
     const [orderId, setOrderId] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:5000/allOrders")
+        fetch("https://boiling-savannah-74683.herokuapp.com/allOrders")
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, []);
@@ -26,7 +26,7 @@ const ManageBookings = () => {
 
     const onSubmit = (data) => {
         console.log(data, orderId);
-        fetch(`http://localhost:5000/statusUpdate/${orderId}`, {
+        fetch(`https://boiling-savannah-74683.herokuapp.com/statusUpdate/${orderId}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -40,7 +40,7 @@ const ManageBookings = () => {
         </div>
     };
     const handleDelete = id => {
-        const url = `http://localhost:5000/deleteOrder/${id}`;
+        const url = `https://boiling-savannah-74683.herokuapp.com/deleteOrder/${id}`;
         fetch(url, {
             method: "DELETE"
         })

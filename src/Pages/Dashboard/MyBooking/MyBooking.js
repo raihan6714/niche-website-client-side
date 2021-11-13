@@ -6,12 +6,12 @@ const MyBooking = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrder/${user?.email}`)
+        fetch(`https://boiling-savannah-74683.herokuapp.com/myOrder/${user?.email}`)
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, [user?.email]);
     const handleDelete = id => {
-        const url = `http://localhost:5000/deleteOrder/${id}`;
+        const url = `https://boiling-savannah-74683.herokuapp.com/deleteOrder/${id}`;
         fetch(url, {
             method: "DELETE"
         })

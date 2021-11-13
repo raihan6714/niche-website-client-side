@@ -4,7 +4,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/allReviews')
+        fetch('https://boiling-savannah-74683.herokuapp.com/allReviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

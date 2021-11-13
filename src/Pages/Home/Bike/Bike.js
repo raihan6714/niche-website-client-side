@@ -18,7 +18,7 @@ const Bike = () => {
     const onSubmit = (data) => {
         data.email = user?.email;
         data.status = "pending";
-        fetch("http://localhost:5000/addOrders", {
+        fetch("https://boiling-savannah-74683.herokuapp.com/addOrders", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -30,7 +30,7 @@ const Bike = () => {
 
     //get single bike in database
     useEffect(() => {
-        fetch(`http://localhost:5000/singleBike/${bikeId}`)
+        fetch(`https://boiling-savannah-74683.herokuapp.com/singleBike/${bikeId}`)
             .then((res) => res.json())
             .then((data) => setBike(data));
     }, [bikeId]);

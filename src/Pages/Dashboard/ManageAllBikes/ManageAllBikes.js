@@ -7,7 +7,7 @@ const ManageAllBikes = () => {
     const { isLoading } = useAuth();
 
     useEffect(() => {
-        fetch("http://localhost:5000/allBikes")
+        fetch("https://boiling-savannah-74683.herokuapp.com/allBikes")
             .then((res) => res.json())
             .then((data) => setBikes(data));
     }, []);
@@ -20,7 +20,7 @@ const ManageAllBikes = () => {
         </div>
     };
     const handleDelete = id => {
-        const url = `http://localhost:5000/deletebike/${id}`;
+        const url = `https://boiling-savannah-74683.herokuapp.com/deletebike/${id}`;
         fetch(url, {
             method: "DELETE"
         })

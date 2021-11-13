@@ -7,7 +7,7 @@ const AddBike = () => {
     const { register, handleSubmit, reset, formState: { errors }, } = useForm();
 
     const onSubmit = (data) => {
-        fetch("http://localhost:5000/addBike", {
+        fetch("https://boiling-savannah-74683.herokuapp.com/addBike", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
