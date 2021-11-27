@@ -28,9 +28,12 @@ const Navigation = () => {
 
                         </Nav>
                         <Nav>
-                            <NavLink to="/dashboard">
-                                <Button className="me-2" variant="danger">Admin Dashboard</Button>
-                            </NavLink>
+                            {
+                                user.email &&
+                                <NavLink to="/dashboard">
+                                    <Button className="me-2" variant="danger">Admin Dashboard</Button>
+                                </NavLink>
+                            }
                         </Nav>
                         <Nav>
                             {
